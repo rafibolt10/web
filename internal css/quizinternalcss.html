@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        .quiz-container {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        .options button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .options button:hover {
+            background-color: #ddd;
+        }
+        #result {
+            font-weight: bold;
+            color: green;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quick Quiz</h1>
+        <p>What is the capital of France?</p>
+        <div class="options">
+            <button onclick="checkAnswer('A')" style="background-color: #e0f7fa;">A) Madrid</button>
+            <button onclick="checkAnswer('B')" style="background-color: #fbe9e7;">B) Paris</button>
+            <button onclick="checkAnswer('C')" style="background-color: #f3e5f5;">C) Rome</button>
+            <button onclick="checkAnswer('D')" style="background-color: #fff9c4;">D) Berlin</button>
+        </div>
+        <button onclick="submitAnswer()" style="background-color: #ffcc80; margin-top: 15px;">Submit Answer</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let selectedAnswer = '';
+
+        function checkAnswer(answer) {
+            selectedAnswer = answer;
+        }
+
+        function submitAnswer() {
+            const result = document.getElementById("result");
+            if (selectedAnswer === 'B') {
+                result.textContent = "Correct! Paris is the capital of France.";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Incorrect. Try again!";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
