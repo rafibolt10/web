@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initialscale=1.0">
+ <title>RGB Color Slider</title>
+ <style>
+ #colorDisplay {
+ width: 200px;
+ height: 200px;
+ margin-top: 20px;
+ border: 1px solid #000;
+ }
+ </style>
+</head>
+<body>
+ <h1>RGB Color Slider</h1>
+ 
+ <label for="red">Red: </label>
+ <input type="range" id="red" min="0" max="255" value="0">
+ <span id="redValue">0</span><br><br>
+ 
+ <label for="green">Green: </label>
+ <input type="range" id="green" min="0" max="255" value="0">
+ <span id="greenValue">0</span><br><br>
+ 
+ <label for="blue">Blue: </label>
+ <input type="range" id="blue" min="0" max="255" value="0">
+ <span id="blueValue">0</span><br><br>
+ 
+ <div id="colorDisplay"></div>
+ <script>
+ function updateColor() {
+ // Step 3.1: Retrieve the values of the sliders
+ const red = document.getElementById('red').value;
+ const green = document.getElementById('green').value;
+ const blue = document.getElementById('blue').value;
+ // Step 3.2: Construct the RGB color value
+ const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+ // Step 3.3: Apply the RGB color to the colorDisplay div
+ 
+document.getElementById('colorDisplay').style.backgroundColor = 
+rgbColor;
+ // Update the displayed values
+ document.getElementById('redValue').textContent = red;
+ document.getElementById('greenValue').textContent = 
+green;
+ document.getElementById('blueValue').textContent = blue;
+ }
+ // Step 4.1: Set up event listeners for the sliders
+ document.getElementById('red').addEventListener('input', 
+updateColor);
+ document.getElementById('green').addEventListener('input', 
+updateColor);
+ document.getElementById('blue').addEventListener('input', 
+updateColor);
+ // Step 5.1: Initialize the display color
+ updateColor();
+ </script>
+</body>
+</html>

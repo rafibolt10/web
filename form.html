@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initialscale=1.0">
+ <title>Basic JavaScript Controls Example</title>
+</head>
+<body>
+ <h1>Form Controls Example</h1>
+ <!-- Text Input -->
+ <label for="name">Enter your name:</label>
+ <input type="text" id="name" name="name"><br><br>
+ <!-- Radio Buttons -->
+ <p>Select your gender:</p>
+ <input type="radio" id="male" name="gender" value="Male">
+ <label for="male">Male</label><br>
+ <input type="radio" id="female" name="gender" value="Female">
+ <label for="female">Female</label><br><br>
+ <!-- Checkbox -->
+ <input type="checkbox" id="subscribe" name="subscribe" 
+value="Subscribed">
+ <label for="subscribe">Subscribe to newsletter</label><br><br>
+ <!-- Dropdown -->
+ <label for="color">Choose a color:</label>
+ <select id="color" name="color">
+ <option value="Red">Red</option>
+ <option value="Green">Green</option>
+ <option value="Blue">Blue</option>
+ </select><br><br>
+ <!-- Button -->
+ <button onclick="displayValues()">Submit</button>
+ <!-- Output area -->
+ <p id="output"></p>
+ <script>
+ function displayValues() {
+ // Get the value from the text input
+ const name = document.getElementById('name').value;
+ // Get the value from the radio buttons
+ const genderElements = 
+document.getElementsByName('gender');
+ let gender;
+ for (let i = 0; i < genderElements.length; i++) {
+ if (genderElements[i].checked) {
+ gender = genderElements[i].value;
+ break;
+ }
+ }
+ // Get the value from the checkbox
+ const isSubscribed = 
+document.getElementById('subscribe').checked ? 'Yes' : 'No';
+ // Get the value from the dropdown
+ const color = document.getElementById('color').value;
+ // Display the values
+ const output = `Name: ${name}<br>Gender: ${gender || 
+"Not selected"}<br>Subscribed: ${isSubscribed}<br>Favorite Color: 
+${color}`;
+ document.getElementById('output').innerHTML = output;
+ }
+ </script>
+</body>
+</html>

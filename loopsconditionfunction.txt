@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Guess the Number</title>
+</head>
+<body>
+ <h1>Guess the Number Game</h1>
+ <p>Try to guess the number between 1 and 10!</p>
+ 
+ <!-- Input for the user guess -->
+ <input type="number" id="userGuess" min="1" max="10">
+ <button onclick="checkGuess()">Guess</button>
+ 
+ <!-- Output to display results -->
+ <p id="result"></p>
+
+ <script>
+   // Generate a random number between 1 and 10
+   const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+   // Function to check the user's guess
+   function checkGuess() {
+     // Get the value from the input field
+     const guess = document.getElementById('userGuess').value;
+     // Convert the guess to a number
+     const userGuess = Number(guess);
+
+     // Validate if the user input is within the valid range (1-10)
+     if (userGuess < 1 || userGuess > 10 || isNaN(userGuess)) {
+       document.getElementById('result').innerHTML = "Please enter a valid number between 1 and 10!";
+       return;
+     }
+
+     // Compare the guess with the random number
+     if (userGuess === randomNumber) {
+       document.getElementById('result').innerHTML = `🎉 Congratulations! You guessed it right, the number is ${randomNumber}.`;
+     } else if (userGuess < randomNumber) {
+       document.getElementById('result').innerHTML = "❌ Too low! Try again.";
+     } else {
+       document.getElementById('result').innerHTML = "❌ Too high! Try again.";
+     }
+   }
+ </script>
+</body>
+</html>
