@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Admissions</title>
+</head>
+<body>
+ <h1>Admissions</h1>
+ <p>We welcome applications for undergraduate and graduate 
+programs. Visit our <a href="apply.html" target="_blank">application 
+page</a> for details.</p>
+ <ul>
+ <li>Application deadline: May 31</li>
+ <li>Requirements: Completed application form, transcripts, 
+and personal statement.</li>
+ </ul>
+</body>
+</html>
